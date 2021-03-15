@@ -9,33 +9,60 @@
 #ifdef DEBUG
 #include "_debug.h"
 #endif
-
-int Worldmap[16][16] =
+/*
+int Worldmap[24][24] =
 {
-	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,2,2,2,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
+	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,3,0,0,0,3,0,0,0,1},
+	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,2,2,0,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,0,0,0,5,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+};*/
+
+int Worldmap[10][10] =
+{
+	{1,1,1,1,1,1,1,1,1,1},
+	{1,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,1},
+	{1,1,1,1,1,1,1,1,1,1}
 };
+
+typedef struct	s_intvec
+{
+	int	x;
+	int	y;
+}				t_intvec;
 
 typedef struct	s_vector
 {
 	double	x;
 	double	y;
-}				t_vector;
+}				t_vec;
 
 typedef struct s_img {
 	void	*img;
@@ -47,22 +74,22 @@ typedef struct s_img {
 	int		height;
 }			t_img;
 
-t_vector	deltadist(t_vector ray)
+t_vec	deltadist(t_vec ray)
 {
-	t_vector	delta;
+	t_vec	delta;
 	
 	if (ray.y == 0)
 		delta.x = 0;
 	else if (ray.x == 0)
 		delta.x = 1;
 	else
-		delta.x = abs(1 / ray.x);
+		delta.x = fabs(1 / ray.x);
 	if (ray.x == 0)
 		delta.y = 0;
 	else if (ray.y == 0)
 		delta.y = 1;
 	else
-		delta.y = abs(1 / ray.y);
+		delta.y = fabs(1 / ray.y);
 	return (delta);
 }
 
@@ -85,11 +112,19 @@ void	put_row(t_img *img, int x, int top_y, int bot_y, int color)
 
 typedef struct	s_player
 {
-	t_vector	coord;
-	t_vector	dir;
+	t_vec	coord;
+	t_vec	dir;
+	t_vec	camera;
 	double		moveSpeed;
 	double		rotSpeed;
 }				t_player;
+
+typedef struct	s_map
+{
+	int	lenght;
+	int	width;
+	int	***map;
+}				t_map;
 
 typedef struct s_window
 {
@@ -100,106 +135,214 @@ typedef struct s_window
 	char		*title;
 	t_img		*img;
 	t_player	player;
+	t_map		map;
+
 }			t_window;
+
+t_vec	compute_ray(t_player player, int x, int win_width)
+{
+	t_vec	ray;
+	double		camx;
+
+	camx = 2 * x / (double)win_width -1;
+	ray.x = player.dir.x + player.camera.x * camx;
+	ray.y = player.dir.y + player.camera.y * camx;
+	return (ray);
+}
+
+t_intvec	compute_step(t_vec ray)
+{
+	t_intvec	step;
+
+	if (ray.x < 0)
+		step.x = -1;
+	else
+		step.x = 1;
+	if (ray.y < 0)
+		step.y = -1;
+	else
+		step.y = 1;
+	return (step);	
+}
+
+t_vec	distside(t_vec ray, t_vec coord, t_intvec posmap, t_vec delta)
+{
+	t_vec	dist_to_side;
+
+	if (ray.x < 0)
+		dist_to_side.x = (coord.x - posmap.x ) * delta.x;
+	else
+		dist_to_side.x = (posmap.x + 1.0 - coord.x) * delta.x;
+	if (ray.y < 0)
+		dist_to_side.y = (coord.y - posmap.y) * delta.y;
+	else
+		dist_to_side.y = (posmap.y + 1.0 - coord.y) * delta.y;
+}
+
+void	put_line(t_window *win, double dist_perpwall, int x, int side)
+{
+	int	line_height;
+	int	line_top;
+	int	line_bot;
+	int color;
+
+	line_height = (int)(win->height / dist_perpwall);
+
+	line_top = -line_height / 2 + win->height / 2;
+	if (line_top < 0)
+		line_top = 0;
+	line_bot = line_height / 2 + win->height / 2;
+	if (line_bot >= win->height)
+		line_bot = win->height - 1;
+
+	if (side == 0)
+		color = 0xFFFFFF;
+	else
+		color = 0x7F7F7F;
+	for (int y = 0; y < line_top; y++)
+		img_pixel_put(win->img, x, y, 0X87CEEB);
+
+	while (line_top <= line_bot)
+	{
+		img_pixel_put(win->img, x, line_top, color);
+		line_top++;
+	}
+	
+	for (int y = line_bot + 1; y < win->height; y++)
+		img_pixel_put(win->img, x, y, 0X835C3B);
+}
 
 int	render_engine(t_window *win)
 {
-	t_vector	camera = {0, 0.66};
-	t_player	*player = &win->player;
-	time_t	ms_frame = 0;
-	time_t	ms_lastframe = 0;
+	t_player	*player;
+	int			x;
+	double		camx;
+	t_vec		ray;
+	t_intvec	map;
+	t_vec		sideDist;
+	t_vec		deltaDist;
+	double		perpWallDist;
+	t_intvec	step;
+	bool		hit = false;
+	int			side;
 
-	for (int x = 0; x < win->width; x++)
+	x = 0;
+	player = &win->player;
+	while (x < win->width)
 	{
-		double		camx = 2 * x / (double)win->width - 1;
-		t_vector	ray = {player->dir.x + camera.y * camx, player->dir.y + camera.y * camx};
-		t_vector	delta = deltadist(ray);
-		t_vector	map = {player->coord.x * 1.0, player->coord.y * 1.0};
-		t_vector	distside;
-		double		distwall_orth;
-		t_vector	step;
-		bool 		hit = false;
-		int			hit_side;
+		camx = 2* x / (double)win->width - 1;
+		ray.x = player->dir.x + player->camera.x * camx;
+		ray.y = player->dir.y + player->camera.y * camx;
 
-		if (ray.x < 0)
-		{
-			step.x = -1;
-			distside.x = (player->coord.x - map.x) * delta.x;
-		}
-		else
-		{
-			step.x = 1;
-			distside.x = (map.x + 1.0 - player->coord.x) * delta.x;
-		}
-		if (ray.y < 0)
-		{
-			step.y = -1;
-			distside.y = (player->coord.y - map.y) * delta.y;
-		}
-		else
-		{
-			step.y = 1;
-			distside.y = (map.y + 1.0 - player->coord.y) * delta.y;
-		}
+		map.x = (int)player->coord.x;
+		map.y = (int)player->coord.y;
+
+		deltaDist = deltadist(ray);
+		step = compute_step(ray);
+		sideDist =  distside(ray, player->coord, map, deltaDist);
+		hit = false;
 		while (hit == false)
 		{
-			if (distside.x < distside.y)
+			if (sideDist.x < sideDist.y)
 			{
-				distside.x += delta.x;
+				sideDist.x += deltaDist.x;
 				map.x += step.x;
-				hit_side = 0;
+				side = 0;
 			}
-			else
+			else 
 			{
-				distside.y += delta.y;
+				sideDist.y += deltaDist.y;
 				map.y += step.y;
-				hit_side = 1;
+				side = 1;
 			}
-			if (Worldmap[(int)map.x][(int)map.y] > 0)
+			if (Worldmap[map.x][map.y] > 0)
 				hit = true;
 		}
-		if (hit_side == 0)
-			distwall_orth = (map.x - player->coord.x + (2 - step.x) / 2 ) / ray.x;
+		if (side == 0)
+			perpWallDist = (map.x - player->coord.x + (1 - step.x) / 2) / ray.x;
 		else
-			distwall_orth = (map.y - player->coord.y + (2 - step.y) / 2 ) / ray.y;
-		int lineheight = (int)(win->height / distwall_orth);
-		int line_start = -lineheight / 2 + win->height / 2;
-		if (line_start < 0)
-			line_start = 0;
-		int	line_end = lineheight / 2 + win->height / 2;
-		if (line_end >= win->height)
-			line_end = win->height - 1;
-		int color = 0xFFFFFF;
-		if (hit_side == 1)
-			color /= 2;
-		put_row(win->img, x, line_start, line_end, color);
+			perpWallDist = (map.y - player->coord.y + (1 - step.y) / 2) / ray.y;
+		put_line(win, perpWallDist, x, side);
+		x++;
 	}
-	ms_lastframe = ms_frame;
-	ms_frame = time(NULL);
-	time_t frametime = (ms_frame - ms_lastframe) / 1000.0;
-	//printf("%ld", 1.0 / frametime);
 	mlx_put_image_to_window(win->mlx, win->win, win->img->img, 0, 0);
-	player->moveSpeed = frametime * 5.0;
-	player->rotSpeed = frametime * 3.0;
 }
+
+#define MOVESP 1
+#define ROTSP 0.25
 
 int	key_move(int keycode, t_window *win)
 {
-	t_vector	*coord;
-	t_vector	*dir;
 	t_player	*player;
+	double		olddirx;
+	double		oldcamx;
+	int			segfault;
+	for (int x = 0; x < win->width; x++)
+		for (int y = 0; y < win->height; y++)
+			img_pixel_put(win->img, x, y, 0);
 
-	coord = &win->player.coord;
-	dir = &win->player.dir;
 	player = &win->player;
-	printf("%d\n", keycode);
 	if (keycode == KEY_W)
 	{
-		if (Worldmap[(int)(coord->x + dir->y * player->moveSpeed)][(int)coord->y] == 0)
-			coord->x += dir->x * player->moveSpeed;
-		if (Worldmap[(int)coord->x][(int)(coord->y - dir->y * player->moveSpeed)] == 0)
-			coord->y += dir->y * player->moveSpeed;
+		if (Worldmap[(int)(player->coord.x + player->dir.x * MOVESP)][(int)(player->coord.y)] == 0)
+			player->coord.x += player->dir.x * MOVESP;
+		if (Worldmap[(int)player->coord.x][(int)(player->coord.y + player->dir.y * MOVESP)] == 0)
+			player->coord.y += player->dir.y * MOVESP;
 	}
+	if (keycode == KEY_S)
+	{
+		if (Worldmap[(int)(player->coord.x - player->dir.x * MOVESP)][(int)(player->coord.y)] == 0)
+			player->coord.x -= player->dir.x * MOVESP;
+		if (Worldmap[(int)player->coord.x][(int)(player->coord.y - player->dir.y * MOVESP)] == 0)
+			player->coord.y -= player->dir.y * MOVESP;
+	}
+	if (keycode == KEY_RIGHT)
+	{
+		olddirx = player->dir.x;
+		player->dir.x = player->dir.x * cos(-ROTSP) - player->dir.y * sin(-ROTSP);
+		player->dir.y = olddirx * sin(-ROTSP) + player->dir.y * cos(-ROTSP);
+		oldcamx = player->camera.x;
+		player->camera.x = player->camera.x * cos(-ROTSP) - player->camera.y * sin(-ROTSP);
+		player->camera.y = oldcamx * sin(-ROTSP) + player->camera.y * cos(-ROTSP);
+	}
+	if (keycode == KEY_LEFT)
+	{
+		olddirx = player->dir.x;
+		player->dir.x = player->dir.x * cos(ROTSP) - player->dir.y * sin(ROTSP);
+		player->dir.y = olddirx * sin(ROTSP) + player->dir.y * cos(ROTSP);
+		oldcamx = player->camera.x;
+		player->camera.x = player->camera.x * cos(ROTSP) - player->camera.y * sin(ROTSP);
+		player->camera.y = oldcamx * sin(ROTSP) + player->camera.y * cos(ROTSP);
+	}
+	if (keycode == KEY_NUM_4)
+	{
+		oldcamx = player->camera.x;
+		player->camera.x = player->camera.x * cos(-ROTSP) - player->camera.y * sin(-ROTSP);
+		player->camera.y = oldcamx * sin(-ROTSP) + player->camera.y * cos(-ROTSP);
+	}
+	if (keycode == KEY_NUM_6)
+	{
+		oldcamx = player->camera.x;
+		player->camera.x = player->camera.x * cos(ROTSP) - player->camera.y * sin(ROTSP);
+		player->camera.y = oldcamx * sin(ROTSP) + player->camera.y * cos(ROTSP);
+	}
+	if (keycode == KEY_NUM_1)
+	{
+		olddirx = player->dir.x;
+		player->dir.x = player->dir.x * cos(-ROTSP) - player->dir.y * sin(-ROTSP);
+		player->dir.y = olddirx * sin(-ROTSP) + player->dir.y * cos(-ROTSP);
+	}
+	if (keycode == KEY_NUM_3)
+	{
+		olddirx = player->dir.x;
+		player->dir.x = player->dir.x * cos(ROTSP) - player->dir.y * sin(ROTSP);
+		player->dir.y = olddirx * sin(ROTSP) + player->dir.y * cos(ROTSP);
+	}
+	/*
+	** Retires le code dessous sale macaque, t'es capable de l'oublier et de pas comprendre pourquoi ça segfault comme un con
+	*/
+	if (keycode == KEY_ESC)
+		segfault = Worldmap[9999999][99999999];
 }
 
 int main()
@@ -208,21 +351,26 @@ int main()
 	t_img		img;
 
 
-	win.width = 800;
-	win.height = 600;
+	win.width = 1280;
+	win.height = 720;
 	win.mlx	= mlx_init();
 	win.win = mlx_new_window(win.mlx, win.width, win.height, "Cub3d v.0");
-	img.img = mlx_new_image(win.mlx, 800, 600);
+	img.img = mlx_new_image(win.mlx, win.width, win.height);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	win.img = &img;
-	win.player.coord.x = 22;
-	win.player.coord.y = 12;
+	win.player.coord.x = 5;
+	win.player.coord.y = 5;
 	win.player.dir.x = -1;
 	win.player.dir.y = 0;
+	win.player.camera.x = 0;
+	win.player.camera.y = 0.66;
+	win.map.map = &Worldmap;
+	win.map.lenght = 32;
+	win.map.width = 32;
 	mlx_loop_hook(win.mlx, render_engine, &win);
-	mlx_key_hook(win.mlx, key_move, &win);
+	mlx_key_hook(win.win, key_move, &win);
 	#ifdef DEBUG
-	//mlx_key_hook(win, keyboard_test, mlx);
+	//mlx_key_hook(win.win, keyboard_test, &win);
 	#endif
 	mlx_loop(win.mlx);
 }

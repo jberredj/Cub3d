@@ -6,14 +6,14 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 19:50:49 by jberredj          #+#    #+#              #
-#    Updated: 2021/03/09 18:07:57 by jberredj         ###   ########.fr        #
+#    Updated: 2021/03/11 12:02:37 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	MiniRT.out
+NAME	=	cub.out
 CC		=	clang
-OPTI	=	-O3
-CFLAGS	=	-Wall -Wextra -Werror $(OPTI)
+OPTI	=	#-O3
+CFLAGS	=	#-Wall -Wextra -Werror $(OPTI)
 OS		=	$(shell uname)
 DEBUG	=	
 HEADERS	=	-I includes/
@@ -27,7 +27,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 MODULE	=	main
 
-DEBUG_SRCS =	
+DEBUG_SRCS =	keyboard.c
 
 $(NAME): $(LIBS) $(MODULE) compile
 
