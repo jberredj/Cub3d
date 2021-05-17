@@ -6,28 +6,36 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 19:50:49 by jberredj          #+#    #+#              #
-#    Updated: 2021/03/11 12:02:37 by jberredj         ###   ########.fr        #
+#    Updated: 2021/05/17 14:55:28 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	cub.out
-CC		=	clang
-OPTI	=	#-O3
-CFLAGS	=	#-Wall -Wextra -Werror $(OPTI)
-OS		=	$(shell uname)
-DEBUG	=	
-HEADERS	=	-I includes/
+NAME		=	cub.out
+CC			=	clang
+OPTI		=	-O3
+CFLAGS		=	-Wall -Wextra -Werror $(OPTI)
+OS			=	$(shell uname)
+DEBUG		=	
+HEADERS		=	-I includes/
 
-LIBS	=	libmlx.a libft.a
+LIBS		=	libmlx.a libft.a
 
-MAIN	=	main.c
+MAIN		=	main.c exit.c
 
-SRCS	=	$(PARSER) $(MAIN) $(OBJECTS)
+RENDER		=	bmp_output.c color_utils.c render.c wall_render.c
+
+PARSER		=	parser.c
+
+MLX			=	mlx_utils2.c mlx_utils.c keyboard.c mouse.c window.c
+
+GAME_ENGINE =	map.c player.c ray.c raycaster.c game_loop.c
+
+SRCS	=	$(PARSER) $(MAIN) $(RENDER) $(MLX) $(GAME_ENGINE)
 OBJS	=	$(SRCS:.c=.o)
 
-MODULE	=	main
+MODULE	=	main render parser mlx game_engine
 
-DEBUG_SRCS =	keyboard.c
+DEBUG_SRCS =
 
 $(NAME): $(LIBS) $(MODULE) compile
 
@@ -49,10 +57,26 @@ debug: MODULE += debug_func
 debug: SRCS += $(DEBUG_SRCS)
 debug: DEBUG = -D DEBUG
 debug: CFLAGS += -g #-fsanitize=address 
-debug: debug_func all
+debug: all
 
 main: objs
 	$(CC) $(CFLAGS) $(HEADERS) -c $(addprefix srcs/, $(MAIN)) -D $(OS) $(DEBUG)
+	mv *.o objs
+
+parser: objs
+	$(CC) $(CFLAGS) $(HEADERS) -c $(addprefix srcs/parser/, $(PARSER)) -D $(OS) $(DEBUG)
+	mv *.o objs
+
+render: objs
+	$(CC) $(CFLAGS) $(HEADERS) -c $(addprefix srcs/render/, $(RENDER)) -D $(OS) $(DEBUG)
+	mv *.o objs
+
+mlx: objs
+	$(CC) $(CFLAGS) $(HEADERS) -c $(addprefix srcs/mlx/, $(MLX)) -D $(OS) $(DEBUG)
+	mv *.o objs
+
+game_engine: objs
+	$(CC) $(CFLAGS) $(HEADERS) -c $(addprefix srcs/game_engine/, $(GAME_ENGINE)) -D $(OS) $(DEBUG)
 	mv *.o objs
 
 debug_func: objs
