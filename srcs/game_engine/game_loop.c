@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 15:52:28 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 15:22:37 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/18 16:00:55 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ t_game	init_game_engine(void)
 	game.flags.pause = false;
 	game.flags.showMap = false;
 	game.textures.c_color = 0;
+	game.textures.c_loaded = false;
 	game.textures.f_color = 0;
+	game.textures.f_loaded = false;
 	game.textures.e_tex = NULL;
 	game.textures.n_tex = NULL;
 	game.textures.s_tex = NULL;

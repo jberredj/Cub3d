@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:38:38 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 15:59:19 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:12:07 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	put_map_line(t_map map, int y)
 		else if (map.grid[x][y] == ' ')
 			grid_sq.color = 0x1487DE;
 		else
-			grid_sq.color = 0xFFFFFF;
+			grid_sq.color = 0x7FFFFFFF;
 		put_square(map.img, grid_sq);
 	}
 }

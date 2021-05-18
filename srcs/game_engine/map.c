@@ -6,13 +6,26 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:49:03 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 14:43:35 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/18 10:42:56 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 #include <stdlib.h>
 #include "../libs/libft/includes/libft.h"
+#include "error_code.h"
+
+void	*fail_create_map(int **grid, int index_fail)
+{
+	int i;
+
+	i = 0;
+	while (i < index_fail)
+	{
+		free(grid[i]);
+	}
+	return (NULL);	
+}
 
 int	**new_map_grid(int x, int y)
 {
@@ -20,9 +33,15 @@ int	**new_map_grid(int x, int y)
 	int	i;
 
 	grid = ft_calloc(x, sizeof(int *));
+	if (grid == NULL)
+		return (NULL);
 	i = -1;
 	while (++i < x)
+	{
 		grid[i] = ft_calloc(y, sizeof(int));
+		if (grid[i] == NULL)
+			return (fail_create_map(grid, i));
+	}
 	return (grid);
 }
 

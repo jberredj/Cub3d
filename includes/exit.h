@@ -1,23 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_utils.h                                      :+:      :+:    :+:   */
+/*   exit.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/06 11:59:19 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/18 14:45:16 by jberredj         ###   ########.fr       */
+/*   Created: 2021/05/17 17:51:11 by jberredj          #+#    #+#             */
+/*   Updated: 2021/05/17 17:51:53 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_UTILS_H
-# define COLOR_UTILS_H
-# include <stdint.h>
-
-uint8_t	get_r(int trgb);
-uint8_t	get_g(int trgb);
-uint8_t	get_b(int trgb);
-int		addShade(int color, double shade);
-int		argb(uint8_t a, uint8_t r, uint8_t g, uint8_t b);
-int	blend_argb(int colora, int colorb);
+#ifndef EXIT_H
+# define EXIT_H
+# include "structs/t_window.h"
+void	error_exit(int code, char *reason, char *location, t_window *win);
 #endif

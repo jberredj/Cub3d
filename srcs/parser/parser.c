@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:50:43 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 14:55:48 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/18 17:10:49 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@
 #include "structs/t_coord.h"
 #include "color_utils.h"
 #include "mlx_utils.h"
+#include "mlx.h"
 #include "map.h"
 #include "player.h"
 #include "error_code.h"
 #include "img.h"
+#include "exit.h"
+#include "ray.h"
 
 char	*ft_strjoin_free(char *to_free, char *s2)
 {
@@ -33,6 +36,22 @@ char	*ft_strjoin_free(char *to_free, char *s2)
 	ret = ft_strjoin(to_free, s2);
 	free(to_free);
 	return (ret);
+}
+
+int	check_file_exist(char *file)
+{
+	int		fd;
+
+	fd = open(file, O_DIRECTORY);
+	if (fd != -1)
+	{
+		close(fd);
+		return (FILE_IS_DIR);
+	}
+	fd = open(file, O_RDONLY);
+	if (fd != -1)
+		return (fd);
+	return (CANT_OPEN_FILE);
 }
 
 int	get_texture(t_img **img_tex, char **split, void *mlx)
@@ -47,14 +66,16 @@ int	get_texture(t_img **img_tex, char **split, void *mlx)
 		return (NOT_ENOUGH);
 	else if (nbr_elem > 2)
 		return (TOO_MANY);
-	fd = open(split[1], O_RDONLY);
-	if (fd == -1)
-		return (CANT_OPEN_FILE);
+	fd = check_file_exist(split[1]);
+	if (fd < 0)
+		return (fd);
 	else
 		close(fd);
 	if (*img_tex != NULL)
 		return (ALREADY_LOADED);	
 	*img_tex = new_image_from_file(mlx, split[1]);
+	if (img_tex == NULL)
+		return (MALLOC_ERROR);
 	return (0);
 }
 
@@ -120,20 +141,23 @@ int	color_parser(char *rgb_line)
 	while (i < 3)
 		if (int_range(0, 255, color[i++]) == false)
 			return (OUT_OF_RANGE);
-	return (rgb(color[0], color[1], color[2]));
+	return (argb(0, color[0], color[1], color[2]));
 }
 
-int		get_cf_color(int *surface, char **split)
+int		get_cf_color(int *surface, bool* loaded, char **split)
 {
 	int color;
 	int nbr_elem;
 
+	if (*loaded)
+		return (ALREADY_LOADED);
 	nbr_elem = ft_split_size(split);
 	if (nbr_elem < 2)
 		return (NOT_ENOUGH);
 	else if (nbr_elem > 2)
 		return (TOO_MANY);
 	color = color_parser(split[1]);
+	*loaded = true;
 	if (color >= 0)
 		*surface = color;
 	else
@@ -152,6 +176,8 @@ int	res_parser(int *width, int *height, bool *loaded, char **line)
 		return (NOT_ENOUGH);
 	else if (nbr_elem > 3)
 		return (TOO_MANY);
+	if (!check_value(line[1], false) || !check_value(line[2], false))
+		return (INCORRECT_VALUE);
 	*width = ft_atoi(line[1]);
 	*height = ft_atoi(line[2]);
 	if (*height < 0 || *width < 0)
@@ -176,9 +202,9 @@ int 	parameters_parser(t_window *win, char **split)
 	if (ft_strncmp(split[0], "S", 1) == 0)
 		return (get_texture(&win->game.textures.sprites, split, win->mlx));
 	if (ft_strncmp(split[0], "F", 1) == 0)
-		return (get_cf_color(&win->game.textures.f_color, split));
+		return (get_cf_color(&win->game.textures.f_color, &win->game.textures.f_loaded, split));
 	if (ft_strncmp(split[0], "C", 1) == 0)
-		return (get_cf_color(&win->game.textures.c_color, split));
+		return (get_cf_color(&win->game.textures.c_color, &win->game.textures.c_loaded, split));
 	return (INVALID_PARAMETER);
 }
 
@@ -196,25 +222,40 @@ int	is_in(char *line, char **list, size_t size)
 	return (0);
 }
 
+int parse_raw_map(char *line, char **rawmap)
+{
+	char	*new_rawmap;
+
+	new_rawmap = ft_strjoin_free(*rawmap, line);
+	if (new_rawmap == NULL)
+		return (MALLOC_ERROR);
+	*rawmap = ft_strjoin_free(new_rawmap, "\n");
+	if (*rawmap == NULL)
+		return (MALLOC_ERROR);
+	return (0);
+}
+
 int	parser_selector(t_window *win, char *line, char **rawmap)
 {
 	char	**split;
-	char	*new_rawmap;
 	int 	error;
 
 	if (is_in(line, (char *[]){"R", "NO", "SO", "WE", "EA", "S", "F", "C"}, 8))
+	{
+		if (ft_strlen(*rawmap) == 1)
 		{
 			split = NULL;
 			split = ft_split(line, ' ');
+			if (split == NULL)
+				return (MALLOC_ERROR);
 			error = parameters_parser(win, split);
 			ft_free_split(split, ft_split_size(split));
 		}
-	else 
-	{
-		error = 0;
-		new_rawmap = ft_strjoin_free(*rawmap, line);
-		*rawmap = ft_strjoin_free(new_rawmap, "\n");
+		else
+			return (INCORRECT_ORDER);
 	}
+	else 
+		error = parse_raw_map(line, rawmap);
 	return (error);
 }
 
@@ -235,7 +276,7 @@ int		longuest_line(char **split, size_t size)
 	return (longuest);
 }
 
-void	create_map_from_raw(t_map *map, char *raw)
+int	create_map_from_raw(t_map *map, char *raw)
 {
 	char	**split;
 	int 	x;
@@ -243,9 +284,16 @@ void	create_map_from_raw(t_map *map, char *raw)
 	size_t	len;
 
 	split = ft_split(raw, '\n');
+	if (split == NULL)
+		return (MALLOC_ERROR);
 	map->y = ft_split_size(split);
 	map->x = longuest_line(split, map->y);
 	map->grid = new_map_grid(map->x, map->y);
+	if (map->grid == NULL)
+	{
+		ft_free_split(split, ft_split_size(split));
+		return (MALLOC_ERROR);
+	}
 	y = -1;
 	while (++y < map->y)
 	{
@@ -260,36 +308,81 @@ void	create_map_from_raw(t_map *map, char *raw)
 		}
 	}
 	ft_free_split(split, ft_split_size(split));
+	return (0);
 }
 
-
-void	parser(t_window *win, char *file)
+int	finish_read(int fd, int code)
 {
-	int		fd;
-	char	*raw_map;
+	int		read_line;
 	char	*line;
-	int		read_all;
 
-	fd = 0;
-	fd = open(file, O_RDONLY);
-	line = NULL;
-	raw_map = ft_calloc(2, sizeof(char));
-	raw_map[0] = '\n';
-	read_all = 0;
-	while (read_all == 0)
+	read_line = 1;
+	while (read_line)
 	{
-		if (get_next_line(fd, &line) == 0)
-			read_all = 1;
-		if (*line != '\0')
-			parser_selector(win, line, &raw_map);
+		read_line = get_next_line(fd, &line);
 		free(line);
 		line = NULL;
 	}
+	
+	return (code);
+}
+
+int	read_cub_file(t_window *win, int fd, char **raw_map)
+{
+	char	*line;
+	int		read_line;
+	int 	error;
+	bool	empty_in_map;
+
+	read_line = 1;
+	line = NULL;
+	empty_in_map = false;
+	while (read_line)
+	{
+		read_line = get_next_line(fd, &line);
+		if (empty_in_map && *line != '\0')
+			return (EMPTY_LINE_IN_MAP);
+		if (read_line == -1)
+			return (CANT_READ_FILE);
+		if (*line != '\0')
+			error = parser_selector(win, line, raw_map);
+		else if (ft_strlen(*raw_map) > 1)
+			empty_in_map = true;
+		free(line);
+		line = NULL;
+		if (error < 0)
+			return(finish_read(fd, error));
+	}
+	return (0);
+}
+
+#include <stdio.h>
+
+int	parser(t_window *win, int fd)
+{
+	char	*raw_map;
+	int 	error;
+
+	raw_map = ft_calloc(2, sizeof(char));
+	if (raw_map == NULL)
+		return (MALLOC_ERROR);
+	raw_map[0] = '\n';
+	error = read_cub_file(win, fd, &raw_map);
 	close(fd);
-	create_map_from_raw(&win->game.map, raw_map);
+	if (error < 0)
+	{
+		free(raw_map);
+		error_exit(error, NULL, "Cub file parser", win);
+	}
+	error = create_map_from_raw(&win->game.map, raw_map);
 	free(raw_map);
+	if (error < 0)
+		error_exit(error, NULL, "Map loader", win);
 	win->game.map.img = new_image(win->mlx, win->game.map.x * TILE_SIZE,
 					win->game.map.y * TILE_SIZE);
+	if (win->game.map.img == NULL)
+		error_exit(MALLOC_ERROR, "Can\'t malloc map img", "Cub file parser", win);
+	return (0);
 }
 
 int	check_for_spawn(t_map map, int *px, int *py)
@@ -394,6 +487,8 @@ int check_map_valid(t_map map)
 	t_map		map_cpy;
 	bool		map_ok;
 
+	if (map.x < 3 || map.y < 3)
+		return (MAP_TOO_SMALL);
 	map_cpy.x = map.x;
 	map_cpy.y = map.y;
 	map_cpy.grid = new_map_grid(map.x, map.y);
@@ -411,4 +506,82 @@ int check_map_valid(t_map map)
 	if (!map_ok)
 		return (MAP_INCORRECT);
 	return (0);
+}
+
+int	check_map_content(t_map map)
+{
+	int		x;
+	int		y;
+	bool	sprites;
+
+	sprites = false;
+	y = -1;
+	while (++y < map.y)
+	{
+		x = -1;
+		while (++x < map.x)
+		{
+			if (map.grid[x][y] != '0' && map.grid[x][y] != '1'
+				&& map.grid[x][y] != '2' && map.grid[x][y] != ' '
+				&& map.grid[x][y] != 'S' && map.grid[x][y] != 'N'
+				&& map.grid[x][y] != 'E' && map.grid[x][y] != 'W')
+				return (INCORRECT_VALUE);
+			if (map.grid[x][y] == '2')
+				sprites = true;
+		}
+	}
+	if (sprites)
+		return (1);
+	return (0);
+}
+
+int	check_loaded_values(t_window win, int need_sprites)
+{
+	if (need_sprites == 1 && !win.game.textures.sprites)
+		return (MISSING_VALUE);
+	if (!win.load_res || !win.game.textures.c_loaded ||
+		!win.game.textures.f_loaded || !win.game.textures.c_loaded ||
+		!win.game.textures.n_tex || !win.game.textures.s_tex ||
+		!win.game.textures.e_tex || !win.game.textures.w_tex)
+		return (MISSING_VALUE);
+	return (0);
+}
+
+void	check_res(void *mlx, int *width, int *height)
+{
+	int max_height;
+	int max_width;
+
+	mlx_get_screen_size(mlx, &max_width, &max_height);
+	if (*height > max_height)
+		*height = max_height;
+	if (*width > max_width)
+		*width = max_width;
+}
+
+void check_parsed_datas(t_window *win)
+{
+	int	error;
+
+	error = check_map_valid(win->game.map);
+	if (error < 0)
+		error_exit(error, NULL, "Check map is valid", win);
+	error = check_map_content(win->game.map);
+	if (error < 0)
+		error_exit(error, NULL, "Check map content", win);
+	if (check_loaded_values(*win, error) < 0)
+		error_exit(MISSING_VALUE, NULL, "Check loaded values", win);
+	error = spawn_player(win->game.map, &win->game.player);
+	if (error < 0)
+		error_exit(error, NULL, "Get player Spawn", win);
+	check_res(win->mlx, &win->width, &win->height);
+	win->game.frames.f1 = new_image(win->mlx, win->width, win->height);
+	if (!win->game.frames.f1)
+		error_exit(MALLOC_ERROR, "Can\'t malloc frame f1", NULL, win);
+	win->game.frames.f2 = new_image(win->mlx, win->width, win->height);
+	if (!win->game.frames.f2)
+		error_exit(MALLOC_ERROR, "Can\'t malloc frame f2", NULL, win);
+	win->game.player.rays = malloc_rays(win->width);
+	if (!win->game.player.rays)
+		error_exit(MALLOC_ERROR, "Can\'t malloc rays", NULL, win);
 }

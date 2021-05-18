@@ -6,13 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:39:46 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 15:18:06 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/17 18:19:30 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "qwerty.h"
 #include <math.h>
+#include <stdlib.h>
 #include "ray.h"
 #ifndef M_PI
 # define M_PI 3.14159265358979323846
@@ -31,6 +32,7 @@ t_player	init_player(double x, double y, double radius, double angle)
 	player.straf_dir = 0;
 	player.movespeed = 0.2;
 	player.rot_speed =  3 * (M_PI / 180);
+	player.rays = NULL;
 	return (player);
 }
 

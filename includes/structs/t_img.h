@@ -6,12 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:06:06 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 12:06:45 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/18 15:58:54 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef T_IMG_H
 # define T_IMG_H
+# include <stdbool.h>
 typedef struct s_img {
 	void	*ptr;
 	char	*addr;
@@ -29,7 +30,9 @@ typedef	struct	s_textures
 	t_img	*s_tex;
 	t_img	*w_tex;
 	t_img	*sprites;
+	bool	f_loaded;
 	int		f_color;
+	bool	c_loaded;
 	int		c_color;
 }				t_textures;
 

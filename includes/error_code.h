@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:50:59 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/14 15:15:04 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/18 17:17:11 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,10 @@
 #define INVALID_PARAMETER -8
 #define MISSING_VALUE -9
 #define MAP_INCORRECT -10
+#define CANT_READ_FILE -11
+#define FILE_NOT_DOT_CUB -12
+#define FILE_IS_DIR -13
+#define INCORRECT_ORDER -14
+#define EMPTY_LINE_IN_MAP -16
+#define MAP_TOO_SMALL -17
 #endif

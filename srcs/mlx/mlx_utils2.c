@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 12:01:03 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 10:54:14 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/18 15:41:01 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void putImgOnImg(t_img toPut, t_img *dst, t_coord orig)
 		while (cur.x >= 0 && cur.x < dst->width && ++prt.x < toPut.width)
 		{
 			color = get_color_from_mlx_img(toPut, prt.x, prt.y);
+
 			if (color == 0)
 				color = addShade(get_color_from_mlx_img(*dst, cur.x + prt.x, cur.y + prt.y), 0.5);
 			if (color != 0x1487DE)

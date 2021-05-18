@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 15:33:37 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 14:44:20 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/18 17:01:24 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,36 @@ t_ray set_ray(double rayAngle, int col, double x, double y)
 	return (ray);
 }
 
+void	fail_malloc_rays(t_ray **rays, int index_fail)
+{
+	int i;
+
+	i = -1;
+	while (++i < index_fail)
+	{
+		free(rays[i]);
+	}
+}
+
 t_ray	**malloc_rays(int nbr)
 {
 	int i;
 	t_ray	**rays;
 
 	rays = ft_calloc(nbr, sizeof(t_ray *));
+	if (!rays)
+		return (NULL);
 	i = -1;
 	while (++i < nbr)
+	{
 		rays[i] = new_ray(0, 0, 0, 0);
+		if (!rays[i])
+		{
+			fail_malloc_rays(rays, i);
+			free(rays);
+			return (NULL);
+		}
+	}
 	return (rays);
 }
 
@@ -84,7 +105,10 @@ void free_rays(t_ray **rays, int nbr)
 	int	i;
 
 	i = -1;
-	while (++i < nbr)
-		free(rays[i]);
-	free(rays);
+	if (rays != NULL)
+	{
+		while (++i < nbr)
+			free(rays[i]);
+		free(rays);
+	}
 }

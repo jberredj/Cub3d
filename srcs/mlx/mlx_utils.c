@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 15:37:11 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/06 12:03:15 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:59:34 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int get_color_from_mlx_img(t_img img, int x, int y)
 
     dst = img.addr +
 	(y * img.line_length + x * (img.bits_per_pixel / 8));
-    return(*(unsigned int*)dst);
+    return(*(int*)dst);
 }
 
 t_img *new_image_from_file(void *mlx, char *filename)
@@ -57,7 +57,7 @@ t_img *new_image_from_file(void *mlx, char *filename)
 	int		width;
 	int		height;
 
-	img = malloc(sizeof(t_img));
+	img = (t_img *)malloc(sizeof(t_img));
 	if (img == NULL)
 		return (NULL);
 	img->ptr = mlx_xpm_file_to_image(mlx, filename, &width, &height);
