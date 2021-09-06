@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:50:43 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/18 17:10:49 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/19 14:11:51 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,16 @@ char	*ft_strjoin_free(char *to_free, char *s2)
 	return (ret);
 }
 
-int	check_file_exist(char *file)
+int	check_xpm_file(char *file)
 {
 	int		fd;
+	char	*check_ext;
 
+	check_ext = ft_strrchr(file, '.');
+	if (check_ext == NULL)
+		return (FILE_NOT_DOT_XPM);
+	if (!ft_strnstr(check_ext, ".xpm", ft_strlen(check_ext)))
+		return (FILE_NOT_DOT_XPM);
 	fd = open(file, O_DIRECTORY);
 	if (fd != -1)
 	{
@@ -66,7 +72,7 @@ int	get_texture(t_img **img_tex, char **split, void *mlx)
 		return (NOT_ENOUGH);
 	else if (nbr_elem > 2)
 		return (TOO_MANY);
-	fd = check_file_exist(split[1]);
+	fd = check_xpm_file(split[1]);
 	if (fd < 0)
 		return (fd);
 	else

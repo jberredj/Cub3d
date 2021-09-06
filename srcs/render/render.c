@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:38:38 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/18 14:12:07 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/19 14:04:42 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,11 @@ void	put_map_line(t_map map, int y)
 	{
 		grid_sq.x = x * TILE_SIZE;
 		if (map.grid[x][y] == '1')
-			grid_sq.color = 0;
+			grid_sq.color = 0x7F000000;
 		else if (map.grid[x][y] == ' ')
-			grid_sq.color = 0x1487DE;
+			grid_sq.color = 0xFF000000;//grid_sq.color = 0x1487DE;
 		else
-			grid_sq.color = 0x7FFFFFFF;
+			grid_sq.color = 0x00FFFFFF;
 		put_square(map.img, grid_sq);
 	}
 }

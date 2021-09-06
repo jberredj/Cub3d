@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 15:37:11 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/18 14:59:34 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/05/18 18:01:36 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ t_img *new_image_from_file(void *mlx, char *filename)
 	if (img == NULL)
 		return (NULL);
 	img->ptr = mlx_xpm_file_to_image(mlx, filename, &width, &height);
+	
 	if (img->ptr == NULL)
 	{
 		free(img);
