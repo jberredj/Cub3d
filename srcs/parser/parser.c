@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:50:43 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/19 14:11:51 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/12/21 17:46:00 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,21 +195,21 @@ int	res_parser(int *width, int *height, bool *loaded, char **line)
 
 int 	parameters_parser(t_window *win, char **split)
 {
-	if (ft_strncmp(split[0], "R", 1) == 0)
+	if (ft_strncmp(split[0], "R", 2) == 0)
 		return (res_parser(&win->width, &win->height, &win->load_res, split));
-	if (ft_strncmp(split[0], "NO", 2) == 0)
+	if (ft_strncmp(split[0], "NO", 3) == 0)
 		return (get_texture(&win->game.textures.n_tex, split, win->mlx));
-	if (ft_strncmp(split[0], "EA", 2) == 0)
+	if (ft_strncmp(split[0], "EA", 3) == 0)
 		return (get_texture(&win->game.textures.e_tex, split, win->mlx));
-	if (ft_strncmp(split[0], "SO", 2) == 0)
+	if (ft_strncmp(split[0], "SO", 3) == 0)
 		return (get_texture(&win->game.textures.s_tex, split, win->mlx));
-	if (ft_strncmp(split[0], "WE", 2) == 0)
+	if (ft_strncmp(split[0], "WE", 3) == 0)
 		return (get_texture(&win->game.textures.w_tex, split, win->mlx));
-	if (ft_strncmp(split[0], "S", 1) == 0)
+	if (ft_strncmp(split[0], "S", 2) == 0)
 		return (get_texture(&win->game.textures.sprites, split, win->mlx));
-	if (ft_strncmp(split[0], "F", 1) == 0)
+	if (ft_strncmp(split[0], "F", 2) == 0)
 		return (get_cf_color(&win->game.textures.f_color, &win->game.textures.f_loaded, split));
-	if (ft_strncmp(split[0], "C", 1) == 0)
+	if (ft_strncmp(split[0], "C", 2) == 0)
 		return (get_cf_color(&win->game.textures.c_color, &win->game.textures.c_loaded, split));
 	return (INVALID_PARAMETER);
 }

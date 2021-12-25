@@ -1,0 +1,12 @@
+R 1280 720
+NO ./textures/sand.xpm
+SO ./textures/dirt.xpm
+WE ./textures/bricks.xpm
+EA ./textures/cobblestone.xpm
+
+F 155,118,83
+C 135,206,235
+
+
+11
+11
