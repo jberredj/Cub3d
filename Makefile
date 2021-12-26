@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 17:39:23 by jberredj          #+#    #+#              #
-#    Updated: 2021/12/26 14:47:20 by jberredj         ###   ########.fr        #
+#    Updated: 2021/12/26 19:13:25 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -135,6 +135,9 @@ $(subst srcs/,,$(source))$(NC)\n";\
 $(subst srcs/,,$(source))$(NC)\n";\
 	fi;)
 endef
+
+bonus: CFLAGS += -D BONUS=1
+bonus: all
 
 game_engine: $(OBJ_DIR) $(GAME_ENGINE_OBJS)
 $(GAME_ENGINE_OBJS): $(GAME_ENGINE_SRCS)

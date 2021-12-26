@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   bonus_define.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/26 14:25:32 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 18:58:53 by jberredj         ###   ########.fr       */
+/*   Created: 2021/12/26 15:58:30 by jberredj          #+#    #+#             */
+/*   Updated: 2021/12/26 19:12:22 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
-# include "structs/t_window.h"
+#ifndef BONUS_DEFINE_H
+# define BONUS_DEFINE_H
+# ifndef BONUS
+#  define BONUS 0
+# endif
 
-void	check_parsed_datas(t_window *win);
-void	check_res(void *mlx, int *width, int *height);
-int		check_loaded_values(t_window win, int need_sprites);
-int		spawn_player(t_map map, t_player *player);
-int		check_map_valid(t_map map);
-int		check_map_content(t_map map);
 #endif
