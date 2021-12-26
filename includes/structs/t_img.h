@@ -6,14 +6,16 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:06:06 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/18 15:58:54 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/12/26 01:44:40 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef T_IMG_H
 # define T_IMG_H
 # include <stdbool.h>
-typedef struct s_img {
+
+typedef struct s_img
+{
 	void	*ptr;
 	char	*addr;
 	int		bits_per_pixel;
@@ -21,9 +23,9 @@ typedef struct s_img {
 	int		endian;
 	int		width;
 	int		height;
-}			t_img;
+}				t_img;
 
-typedef	struct	s_textures
+typedef struct s_textures
 {
 	t_img	*n_tex;
 	t_img	*e_tex;
@@ -36,15 +38,15 @@ typedef	struct	s_textures
 	int		c_color;
 }				t_textures;
 
-typedef struct	s_square
+typedef struct s_square
 {
-	int x;
+	int	x;
 	int	y;
-	int size;
+	int	size;
 	int	color;
 }				t_square;
 
-typedef struct	s_circle
+typedef struct s_circle
 {
 	int		x;
 	int		y;
@@ -52,7 +54,7 @@ typedef struct	s_circle
 	int		color;
 }				t_circle;
 
-typedef struct	s_frames
+typedef struct s_frames
 {
 	t_img	*f1;
 	t_img	*f2;

@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:48:45 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 12:09:19 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/12/26 01:43:44 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "t_img.h"
 # include "t_player.h"
 # include "t_map.h"
+
 typedef struct s_game
 {
 	t_mouse		mouse;
@@ -25,6 +26,5 @@ typedef struct s_game
 	t_frames	frames;
 	t_player	player;
 	t_map		map;
-}t_game;
-
+}				t_game;
 #endif

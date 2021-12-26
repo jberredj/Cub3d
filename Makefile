@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 17:39:23 by jberredj          #+#    #+#              #
-#    Updated: 2021/12/26 00:06:01 by jberredj         ###   ########.fr        #
+#    Updated: 2021/12/26 02:50:44 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,11 @@ LIBS			=	libft.a libmlx.a
 ##								Source files								 ##
 ###############################################################################
 
-RENDER				= 	bmp_output.c color_utils.c render.c wall_render.c
+MAP					=	circle.c process.c square.c
+FRAME				=	$(addprefix map/, $(MAP)) \
+						player.c render.c wall_render.c
+RENDER				= 	$(addprefix frame/, $(FRAME))\
+						color_utils.c blend_argb.c 
 RENDER_SRCS			=	$(addprefix srcs/render/, $(RENDER))
 RENDER_OBJS			=	$(addprefix objs/render.,\
 						$(subst /,., $(RENDER:.c=.o)))
@@ -44,7 +48,11 @@ MLX_UTILS			=	mlx_utils2.c mlx_utils.c keyboard.c mouse.c window.c
 MLX_UTILS_SRCS		=	$(addprefix srcs/mlx/, $(MLX_UTILS))
 MLX_UTILS_OBJS		=	$(addprefix objs/mlx., $(subst /,., $(MLX_UTILS:.c=.o)))
 
-GAME_ENGINE			=	map.c player.c ray.c raycaster.c game_loop.c
+RAYS				=	create.c free.c set.c utils.c
+RAYCASTER			=	compute_rays.c raycaster.c
+GAME_ENGINE			=	$(addprefix rays/, $(RAYS)) \
+						$(addprefix raycaster/, $(RAYCASTER))\
+						map.c player.c game_loop.c
 GAME_ENGINE_SRCS	=	$(addprefix srcs/game_engine/, $(GAME_ENGINE))
 GAME_ENGINE_OBJS	=	$(addprefix objs/game_engine., $(subst /,., $(GAME_ENGINE:.c=.o)))
 

@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:45:11 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 13:59:15 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/12/26 02:21:22 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,7 @@ void	ray_drawer(t_map map, t_ray ray);
 void	img_pixel_put(t_img *data, int x, int y, int color);
 void	render_frame(t_window win, t_ray **rays);
 void	player_process(t_window *win);
+void	bresen_circle(t_img *img, t_circle c);
+void	put_square(t_img *img, t_square square);
+void	map_process(t_window win, t_ray **rays);
 #endif

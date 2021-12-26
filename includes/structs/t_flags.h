@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:55:40 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 12:24:33 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/12/26 01:43:07 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 typedef struct s_flags
 {
-	bool	showMap;
-	bool	mouseControl;
+	bool	show_map;
+	bool	mouse_control;
 	bool	pause;
-}t_flags;
+}				t_flags;
 #endif

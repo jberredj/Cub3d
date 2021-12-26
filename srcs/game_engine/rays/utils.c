@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/06 11:51:27 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 01:49:29 by jberredj         ###   ########.fr       */
+/*   Created: 2021/05/05 15:33:37 by jberredj          #+#    #+#             */
+/*   Updated: 2021/12/26 01:26:23 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
-# include "structs.h"
-# include "color_utils.h"
-# include "mlx_utils.h"
-# include "mlx.h"
-# include "player.h"
-# include "ray.h"
-# include "raycaster.h"
-# include "render.h"
-# include "wall_render.h"
+#include <stdlib.h>
+#include <math.h>
+#include "../libs/libft/includes/libft.h"
+#include "structs/t_ray.h"
+#include "player.h"
 
-#endif
+double	normalize_angle(double angle)
+{
+	angle = fmod(angle, (2 * M_PI));
+	if (angle < 0)
+		angle = (2 * M_PI) + angle;
+	return (angle);
+}

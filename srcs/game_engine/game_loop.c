@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 15:52:28 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/18 16:00:55 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/12/26 01:42:56 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@
 t_game	init_game_engine(void)
 {
 	t_game	game;
-	
+
 	init_map_struct(&game.map);
 	game.player = init_player(0, 0, 3, 0);
 	game.frames.f1 = NULL;
 	game.frames.f2 = NULL;
 	game.mouse.x_vel = 0;
 	game.mouse.mouse_in = false;
-	game.flags.mouseControl = false;
+	game.flags.mouse_control = false;
 	game.flags.pause = false;
-	game.flags.showMap = false;
+	game.flags.show_map = false;
 	game.textures.c_color = 0;
 	game.textures.c_loaded = false;
 	game.textures.f_color = 0;
@@ -59,6 +59,7 @@ int	game_loop(t_window *win)
 		reset_rays(game->player.rays, win->width);
 	}
 	else
-		mlx_string_put(win->mlx, win->win, win->width/2 - 30, win->height / 2 - 10, 0, "PAUSE");
+		mlx_string_put(win->mlx, win->win, win->width / 2 - 30,
+			win->height / 2 - 10, 0, "PAUSE");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:49:03 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/18 10:42:56 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/12/26 01:18:19 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 
 void	*fail_create_map(int **grid, int index_fail)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < index_fail)
 	{
 		free(grid[i]);
 	}
-	return (NULL);	
+	return (NULL);
 }
 
 int	**new_map_grid(int x, int y)
 {
-	int **grid;
+	int	**grid;
 	int	i;
 
 	grid = ft_calloc(x, sizeof(int *));
@@ -55,7 +55,7 @@ void	init_map_struct(t_map *map)
 
 void	cpy_map_grid(int **src, int **dest, int maxx, int maxy)
 {
-	int x;
+	int	x;
 	int	y;
 
 	x = -1;
@@ -65,13 +65,11 @@ void	cpy_map_grid(int **src, int **dest, int maxx, int maxy)
 		while (++y < maxy)
 			dest[x][y] = src[x][y];
 	}
-		
-	
 }
 
 void	free_map_grid(t_map	map)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < map.x)

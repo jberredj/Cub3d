@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 16:36:03 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 14:24:07 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/12/26 01:56:45 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 # include "structs/t_img.h"
 # include "structs/t_coord.h"
 # include "structs/t_window.h"
-void	putImgOnImg(t_img toPut, t_img *dst, t_coord orig);
+
+void	put_img_on_img(t_img toPut, t_img *dst, t_coord orig);
 void	img_pixel_put(t_img *data, int x, int y, int color);
 t_img	*new_image(void *mlx, int width, int height);
 int		get_color_from_mlx_img(t_img img, int x, int y);

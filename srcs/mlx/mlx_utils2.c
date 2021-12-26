@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 12:01:03 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/19 12:24:17 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/12/26 01:56:32 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,22 @@ void	init_img_struct(t_img *img)
 	img->width = 0;
 }
 
-void putImgOnImg(t_img toPut, t_img *dst, t_coord orig)
+void	put_img_on_img(t_img to_put, t_img *dst, t_coord orig)
 {
 	t_coord	cur;
-	t_coord prt;
-	int color;
+	t_coord	prt;
+	int		color;
 
 	cur.x = orig.x;
 	cur.y = orig.y;
 	prt.y = -1;
-	while (cur.y >= 0 && cur.y < dst->height && ++prt.y < toPut.height)
+	while (cur.y >= 0 && cur.y < dst->height && ++prt.y < to_put.height)
 	{
 		prt.x = -1;
-		while (cur.x >= 0 && cur.x < dst->width && ++prt.x < toPut.width)
+		while (cur.x >= 0 && cur.x < dst->width && ++prt.x < to_put.width)
 		{
-			color =  blend_argb(get_color_from_mlx_img(toPut, prt.x, prt.y), get_color_from_mlx_img(*dst, cur.x + prt.x, cur.y + prt.y));
-			// color = get_color_from_mlx_img(toPut, prt.x, prt.y);
-
-			// if (color == 0)
-			// 	color = addShade(get_color_from_mlx_img(*dst, cur.x + prt.x, cur.y + prt.y), 0.5);
+			color = blend_argb(get_color_from_mlx_img(to_put, prt.x, prt.y),
+					get_color_from_mlx_img(*dst, cur.x + prt.x, cur.y + prt.y));
 			img_pixel_put(dst, cur.x + prt.x, cur.y + prt.y, color);
 		}
 	}
