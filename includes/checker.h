@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray.h                                              :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/06 12:07:47 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 14:47:36 by jberredj         ###   ########.fr       */
+/*   Created: 2021/12/26 14:25:32 by jberredj          #+#    #+#             */
+/*   Updated: 2021/12/26 14:38:17 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAY_H
-# define RAY_H
-# include "structs/t_ray.h"
+#ifndef CHECKER_H
+# define CHECKER_H
+# include "structs/t_window.h"
 
-double	normalize_angle(double angle);
-t_ray	*new_ray(double ray_angle, int col, double x, double y);
-t_ray	set_ray(double ray_angle, int col, double x, double y);
-void	free_rays(t_ray **rays, int nbr);
-t_ray	**malloc_rays(int nbr);
-void	reset_rays(t_ray **rays, int nbr);
+void	check_parsed_datas(t_window *win);
+void	check_res(void *mlx, int *width, int *height);
+int		check_loaded_values(t_window win, int need_sprites);
+int		spawn_player(t_map map, t_player *player);
+int		check_map_valid(t_map map);
+int		check_map_content(t_map map);
 #endif

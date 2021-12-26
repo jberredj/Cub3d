@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:50:17 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 01:51:10 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/12/26 14:29:00 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,18 @@
 
 int		parser_selector(t_window *win, char *line, char **rawmap);
 int		longuest_line(char **split, size_t size);
-void	create_map_from_raw(t_map *map, char *raw);
+int		create_map_from_raw(t_map *map, char *raw);
 int		parser(t_window *win, int fd);
 int		check_for_spawn(t_map map, int *px, int *py);
 int		spawn_player(t_map map, t_player *player);
 bool	check_surrounding(t_map map, t_int_coord coord);
-bool	fill_space(t_map *map, t_int_coord c);
 int		check_map_valid(t_map map);
-void	check_parsed_datas(t_window *win);
+int		get_cf_color(int *surface, bool *loaded, char **split);
+int		get_texture(t_img **img_tex, char **split, void *mlx);
+int		read_cub_file(t_window *win, int fd, char **raw_map);
+int		res_parser(int *width, int *height, bool *loaded, char **line);
+bool	check_value(char *str, bool point);
+bool	int_range(int min, int max, int value);
+int		check_parameter_nbr(int value, int expected);
+int		parse_raw_map(char *line, char **rawmap);
 #endif

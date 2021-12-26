@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 17:39:23 by jberredj          #+#    #+#              #
-#    Updated: 2021/12/26 02:50:44 by jberredj         ###   ########.fr        #
+#    Updated: 2021/12/26 14:47:20 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,10 @@ LIBS			=	libft.a libmlx.a
 ##								Source files								 ##
 ###############################################################################
 
+CHECKER				=	loaded_values.c map_valid.c parsed_datas.c spawn_player.c
+CHECKER_SRCS		=	$(addprefix srcs/checker/, $(CHECKER))
+CHECKER_OBJS		=	$(addprefix objs/checker., $(subst /,., $(CHECKER:.c=.o)))
+
 MAP					=	circle.c process.c square.c
 FRAME				=	$(addprefix map/, $(MAP)) \
 						player.c render.c wall_render.c
@@ -40,7 +44,9 @@ MAIN				=	main.c exit.c
 MAIN_SRCS			=	$(addprefix srcs/, $(MAIN))
 MAIN_OBJS			=	$(addprefix objs/, $(subst /,., $(MAIN:.c=.o)))
 
-PARSER				=	parser.c
+PARSER				=	create_map_from_raw.c get_cf_color.c get_texture.c \
+						parser.c raw_map.c read_cub_file.c res_parser.c selector.c \
+						utils.c
 PARSER_SRCS			=	$(addprefix srcs/parser/, $(PARSER))
 PARSER_OBJS			=	$(addprefix objs/parser., $(subst /,., $(PARSER:.c=.o)))
 
@@ -64,12 +70,12 @@ HEADERS				=	$(addprefix structs/, $(STRUCTS))\
 						player.h qwerty.h ray.h raycaster.h render.h structs.h \
 						wall_render.h
 
-SRCS				=	$(RENDER_SRCS) $(PARSER_SRCS) $(MLX_UTILS_SRCS) $(GAME_ENGINE_SRCS) \
+SRCS				=	$(RENDER_SRCS) $(PARSER_SRCS) $(CHECKER_SRCS) $(MLX_UTILS_SRCS) $(GAME_ENGINE_SRCS) \
 						$(MAIN_SRCS)
-OBJS				=	$(RENDER_OBJS) $(PARSER_OBJS) $(MLX_UTILS_OBJS) $(GAME_ENGINE_OBJS) \
+OBJS				=	$(RENDER_OBJS) $(PARSER_OBJS) $(CHECKER_OBJS) $(MLX_UTILS_OBJS) $(GAME_ENGINE_OBJS) \
 						$(MAIN_OBJS)
 
-MODULE				=	render parser mlx game_engine main
+MODULE				=	render parser checker mlx game_engine main
 
 ###############################################################################
 ##							Color output char								 ##
@@ -145,6 +151,11 @@ $(PARSER_OBJS): $(PARSER_SRCS)
 	printf "$(BLUE)Compiling $(LIGHT_PURPLE)parser $(BLUE)functions$(NC)\n"
 	$(COMPILE)
 
+checker: $(OBJ_DIR) $(CHECKER_OBJS)
+$(CHECKER_OBJS): $(CHECKER_SRCS)
+	printf "$(BLUE)Compiling $(LIGHT_PURPLE)$(@^) $(BLUE)functions$(NC)\n"
+	$(COMPILE)
+
 render: $(OBJ_DIR) $(RENDER_OBJS)
 $(RENDER_OBJS): $(RENDER_SRCS)
 	printf "$(BLUE)Compiling $(LIGHT_PURPLE)render $(BLUE)functions$(NC)\n"
@@ -190,6 +201,6 @@ commit_all_files: ffclean
 
 norm:
 	printf "$(BLUE)Checking norm$(NC)\n"
-	norminette $(SRCS) $(addprefix $(INC_DIR)/, $(HEADERS)) \
+	norminette $(SRCS) $(addprefix $(INC_DIR)/, $(filter-out mlx.h, $(HEADERS))) \
 	; if [ "$$?" -ne "0" ]; then printf "$(RED)NORM ERROR$(NC)\n"; \
 	else printf "$(GREEN)NORM OK$(NC)\n";fi

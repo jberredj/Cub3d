@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 14:17:30 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 02:54:15 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/12/26 14:38:37 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 #include <sys/stat.h>
 #include "exit.h"
 #include "error_code.h"
+#include "checker.h"
 
 int	check_file(char *file)
 {
