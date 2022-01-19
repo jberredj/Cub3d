@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 13:38:38 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/19 15:13:03 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/19 15:20:48 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,11 @@
 
 bool	check_value(char *str, bool point)
 {
-	// bool	white_space;
-
-	// white_space = false;
 	if (str == NULL)
 		return (false);
 	while (*str)
 	{
-		if (/*!white_space && */!ft_isdigit(*str) && *str != '-' && *str != '+')
+		if (!ft_isdigit(*str) && *str != '-' && *str != '+')
 		{
 			if (point == true && *str == '.')
 			{
@@ -33,15 +30,6 @@ bool	check_value(char *str, bool point)
 			}
 			return (false);
 		}
-		// else
-		// {
-		// 	if (ft_isspace(*str))
-		// 	{
-		// 		white_space = true;
-		// 		str++;
-		// 		continue ;
-		// 	}
-		// }
 		str++;
 	}
 	return (true);
