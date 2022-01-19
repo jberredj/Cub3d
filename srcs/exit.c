@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 15:54:12 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 02:55:26 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/19 12:40:06 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	free_exit(t_window *win)
 	free_img(win->mlx, &win->game.textures.e_tex);
 	free_img(win->mlx, &win->game.textures.s_tex);
 	free_img(win->mlx, &win->game.textures.w_tex);
-	mlx_destroy_window(win->mlx, win->win);
+	if (win->win)
+		mlx_destroy_window(win->mlx, win->win);
 	mlx_destroy_display(win->mlx);
 	free(win->mlx);
 	free_map_grid(win->game.map);
