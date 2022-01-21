@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set.c                                              :+:      :+:    :+:   */
+/*   wall_ceeling_color.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/26 01:23:49 by jberredj          #+#    #+#             */
+/*   Created: 2022/01/20 17:41:28 by jberredj          #+#    #+#             */
 /*   Updated: 2022/01/21 14:23:50 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+#include <stdlib.h>
+#include "structs/t_img.h"
 #include "structs/t_ray.h"
-#include "ray.h"
+#include "structs/t_coord.h"
+#include "wall_render.h"
+#include "mlx_utils.h"
 #include "player.h"
+#include "color_utils.h"
+#include "raycaster.h"
 
-t_ray	set_ray(float ray_angle, int col, float x, float y)
+int	floor_color(int color, int up, int pix, int height)
 {
-	t_ray	ray;
-
-	ray.ray_angle = normalize_angle(ray_angle);
-	ray.ray_down = false;
-	ray.ray_right = false;
-	if (ray.ray_angle > 0 && ray.ray_angle < M_PI)
-		ray.ray_down = true;
-	if (ray.ray_angle < (M_PI / 2) || ray.ray_angle > (1.5 * M_PI))
-		ray.ray_right = true;
-	ray.o_x = x;
-	ray.o_y = y;
-	ray.ray_nbr = col;
-	ray.to_render = true;
-	return (ray);
+	return (add_shade(color, 0.5 - (float)(((up + pix) - height / 2))
+		/ (height - (height / 2))));
 }
 
-void	reset_rays(t_ray **rays, int nbr)
+int	ceeling_color(int color, int pix, int height)
 {
-	int	i;
+	float	shade;
 
-	i = -1;
-	while (++i < nbr)
-		*rays[i] = set_ray(0, 0, 0, 0);
+	shade = -0.5 + (float)(((pix) - 0))
+		/ ((height / 2) - (0));
+	if (shade < 0.0)
+		shade = 0.0;
+	return (add_shade(color, shade));
 }

@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 17:39:23 by jberredj          #+#    #+#              #
-#    Updated: 2021/12/26 19:13:25 by jberredj         ###   ########.fr        #
+#    Updated: 2022/01/21 15:04:14 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ CHECKER_OBJS		=	$(addprefix objs/checker., $(subst /,., $(CHECKER:.c=.o)))
 
 MAP					=	circle.c process.c square.c
 FRAME				=	$(addprefix map/, $(MAP)) \
-						player.c render.c wall_render.c
+						player.c render.c wall_render.c wall_ceeling_color.c
 RENDER				= 	$(addprefix frame/, $(FRAME))\
 						color_utils.c blend_argb.c 
 RENDER_SRCS			=	$(addprefix srcs/render/, $(RENDER))
@@ -58,7 +58,7 @@ RAYS				=	create.c free.c set.c utils.c
 RAYCASTER			=	compute_rays.c raycaster.c
 GAME_ENGINE			=	$(addprefix rays/, $(RAYS)) \
 						$(addprefix raycaster/, $(RAYCASTER))\
-						map.c player.c game_loop.c
+						map.c player.c game_loop.c is_in_map.c
 GAME_ENGINE_SRCS	=	$(addprefix srcs/game_engine/, $(GAME_ENGINE))
 GAME_ENGINE_OBJS	=	$(addprefix objs/game_engine., $(subst /,., $(GAME_ENGINE:.c=.o)))
 

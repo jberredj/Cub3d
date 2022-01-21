@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 01:23:05 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 01:47:16 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/21 14:23:50 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "structs/t_ray.h"
 #include "ray.h"
 
-t_ray	*new_ray(double ray_angle, int col, double x, double y)
+t_ray	*new_ray(float ray_angle, int col, float x, float y)
 {
 	t_ray	*ray;
 
@@ -28,6 +28,7 @@ t_ray	*new_ray(double ray_angle, int col, double x, double y)
 	ray->o_x = x;
 	ray->o_y = y;
 	ray->ray_nbr = col;
+	ray->to_render = true;
 	return (ray);
 }
 

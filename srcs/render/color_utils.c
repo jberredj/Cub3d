@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 11:58:13 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 02:00:51 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/21 14:23:50 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	get_b(int trgb)
 	return (trgb & 0x000000FF);
 }
 
-int	add_shade(int color, double shade)
+int	add_shade(int color, float shade)
 {
 	int	a;
 	int	r;

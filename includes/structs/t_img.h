@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:06:06 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 01:44:40 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/21 14:23:50 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_circle
 {
 	int		x;
 	int		y;
-	double	radius;
+	float	radius;
 	int		color;
 }				t_circle;
 

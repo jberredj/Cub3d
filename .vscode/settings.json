@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"atomic": "c",
-		"*.tcc": "c",
-		"istream": "c",
-		"ostream": "c"
-	}
-}

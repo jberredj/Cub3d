@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 15:36:01 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 02:47:33 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/21 14:47:32 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include "wall_render.h" // t_print_pix struct
 #include "mlx_utils.h" // for get_color_from_mlx_img function
 #include "player.h" // for FOV define
+#include "color_utils.h"
+#include "raycaster.h"
 
 int	tex_coord_y(t_img *frame, t_ray ray, t_print_pix prt, t_img *texture)
 {
@@ -51,8 +53,21 @@ int	texture_wall(t_img *frame, t_ray ray, t_print_pix prt, t_textures tex)
 		tex_coord.x = (int)(ray.wall_hit_x * texture->width) % texture->width;
 	tex_coord.y = tex_coord_y(frame, ray, prt, texture);
 	color = get_color_from_mlx_img(*texture, tex_coord.x, tex_coord.y);
-	img_pixel_put(frame, ray.ray_nbr, prt.up + prt.pix, color);
+	img_pixel_put(frame, ray.ray_nbr, prt.up + prt.pix,
+		add_shade(color, ray.distance * 0.9 / RENDER_DISTANCE));
 	return (0);
+}
+
+void	check_to_render(int *up, t_img *frame, t_ray *ray)
+{
+	*up = (frame->height / 2) - (ray->strip_height / 2);
+	if (!ray->to_render)
+	{
+		*up = (frame->height / 2);
+		ray->strip_height = -10.0;
+	}
+	if (*up < 0)
+		*up = 0;
 }
 
 void	strip(t_img *frame, t_ray ray, t_textures tex)
@@ -63,34 +78,32 @@ void	strip(t_img *frame, t_ray ray, t_textures tex)
 
 	tex_coord.x = 0;
 	tex_coord.y = 0;
-	up = (frame->height / 2) - (ray.strip_height / 2);
-	if (up < 0)
-		up = 0;
+	up = 0;
+	check_to_render(&up, frame, &ray);
 	pix = -1;
 	while (++pix < up && up != 0)
-		img_pixel_put(frame, ray.ray_nbr, pix, tex.c_color);
+		img_pixel_put(frame, ray.ray_nbr, pix,
+			ceeling_color(tex.c_color, pix, frame->height));
 	pix = -1;
 	while (++pix <= ray.strip_height && pix < frame->height)
 		texture_wall(frame, ray, (t_print_pix){pix, up}, tex);
 	while (pix + up < frame->height)
-		img_pixel_put(frame, ray.ray_nbr, up + pix++, tex.f_color);
-	if (ray.was_hit_vertical)
-		tex_coord.x = (int)(ray.wall_hit_y * tex.n_tex->width)
-			% tex.n_tex->width;
-	else
-		tex_coord.x = (int)(ray.wall_hit_x * tex.n_tex->width)
-			% tex.n_tex->width;
+	{
+		img_pixel_put(frame, ray.ray_nbr, up + pix,
+			floor_color(tex.f_color, up, pix, frame->height));
+		pix++;
+	}
 }
 
-void	projection(t_img *frame, t_ray **rays, double player_angle,
+void	projection(t_img *frame, t_ray **rays, float player_angle,
 	t_textures tex)
 {
 	int		i;
-	double	distance_proj_plane;
-	double	corrected_distance;
+	float	distance_proj_plane;
+	float	corrected_distance;
 
 	distance_proj_plane = (frame->width / 2)
-		/ tan((FOV * (M_PI / 180)) / 2);
+		/ tanf((FOV * (M_PI / 180)) / 2);
 	i = 0;
 	while (i < frame->width)
 	{

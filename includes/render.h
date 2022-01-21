@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:45:11 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 02:21:22 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/20 11:45:14 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include "structs/t_map.h"
 # include "structs/t_img.h"
 # include "structs/t_window.h"
-# ifndef TILE_SIZE
-#  define TILE_SIZE 4
-# endif
+# include "map.h"
 
 void	draw_player_pos(t_map map, t_player player);
 int		map_drawer(t_map map);

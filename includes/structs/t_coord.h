@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:13:16 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 01:43:31 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/21 14:22:21 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_int_coord
 
 typedef struct s_coord
 {
-	double	x;
-	double	y;
+	float	x;
+	float	y;
 }				t_coord;
 #endif

@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:02:40 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 01:45:35 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/21 14:23:50 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 typedef struct s_player
 {
-	double	x;
-	double	y;
-	double	radius;
-	double	turn_dir;
-	double	straf_dir;
-	double	walk_dir;
-	double	rot_angl;
-	double	movespeed;
-	double	rot_speed;
+	float	x;
+	float	y;
+	float	radius;
+	float	turn_dir;
+	float	straf_dir;
+	float	walk_dir;
+	float	rot_angl;
+	float	movespeed;
+	float	rot_speed;
 	t_ray	**rays;
 }				t_player;
 #endif

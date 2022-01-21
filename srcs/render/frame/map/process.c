@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:07:14 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 19:20:02 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/21 14:23:50 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	draw_player_pos(t_map map, t_player player)
 void	ray_drawer(t_map map, t_ray ray)
 {
 	int		i;
-	double	x;
-	double	y;
+	float	x;
+	float	y;
 
 	x = ray.o_x * TILE_SIZE;
 	y = ray.o_y * TILE_SIZE;
