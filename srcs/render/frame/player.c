@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:13:44 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 02:14:28 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 08:57:06 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 #include "structs/t_img.h"
 #include "structs/t_coord.h"
 #include "structs/t_mouse.h"
-#include "mlx_utils.h" // for img_pixel_put function
-#include "img.h" // for mlx_img_to_bmp function
-#include "render.h" // for circle pix structs
-#include "player.h" // for player_pos function
-#include "wall_render.h" // for projection function
+#include "mlx_utils.h"
+#include "render.h"
+#include "player.h"
+#include "wall_render.h"
 
 void	mouse_move(t_window win, t_mouse *mouse)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   selector.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/26 13:30:48 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 13:53:31 by jberredj         ###   ########.fr       */
+/*   Created: 2021/12/26 13:30:48 by ddiakova          #+#    #+#             */
+/*   Updated: 2022/01/27 09:02:01 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	parser_selector(t_window *win, char *line, char **rawmap)
 	int		error;
 
 	if (is_in(line,
-			(char *[]){"R", "NO", "SO", "WE", "EA", "S", "F", "C", NULL}))
+			(char *[]){"R", "NO", "SO", "WE", "EA", "F", "C", NULL}))
 	{
 		if (ft_strlen(*rawmap) == 1)
 		{

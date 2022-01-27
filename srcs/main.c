@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 14:17:30 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 14:38:37 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 08:51:21 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//username : tony.kino.3@gmail.com
-//password : TxywqbRxCbKQ4SS
 
 #include "../libs/libft/includes/libft.h"
 #include "parser.h" // for parser function
