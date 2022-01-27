@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
+#    By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 17:39:23 by jberredj          #+#    #+#              #
-#    Updated: 2022/01/21 15:04:14 by jberredj         ###   ########.fr        #
+#    Updated: 2022/01/27 09:31:51 by ddiakova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ STRUCTS				=	t_coord.h t_flags.h t_game.h t_img.h t_map.h t_mouse.h \
 						t_player.h t_ray.h t_window.h
 HEADERS				=	$(addprefix structs/, $(STRUCTS))\
 						color_utils.h cub3d.h error_code.h exit.h game_engine.h \
-						img.h keyboard.h map.h mlx_utils.h mlx.h mouse.h parser.h \
+						keyboard.h map.h mlx_utils.h mlx.h mouse.h parser.h \
 						player.h qwerty.h ray.h raycaster.h render.h structs.h \
 						wall_render.h
 
@@ -176,7 +176,7 @@ ffclean: fclean
 $(SRCS): $(addprefix $(INC_DIR)/, $(HEADERS))
  
 libft.a:
-	make -C libs/libft 
+	make -C libs/libft ft_io ft_string ft_to ft_ctype get_next_line lib
 	cp libs/libft/libft.a .
 
 libmlx.a:
