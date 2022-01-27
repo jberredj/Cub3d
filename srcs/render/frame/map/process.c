@@ -6,7 +6,7 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:07:14 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 09:54:21 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/27 10:06:41 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <math.h>
 #include "structs/t_img.h"
 #include "structs/t_coord.h"
+#include "map.h"
 #include "mlx_utils.h"
 #include "render.h"
 

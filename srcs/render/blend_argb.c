@@ -6,19 +6,11 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 01:58:50 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 09:23:56 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/27 10:08:15 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color_utils.h"
-
-typedef struct s_argb
-{
-	int	a;
-	int	r;
-	int	g;
-	int	b;
-}			t_argb;
 
 int	argb(int a, int r, int g, int b)
 {

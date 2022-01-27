@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:45:11 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/20 11:45:14 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 10:06:16 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 # define RENDER_H
 # include "structs/t_map.h"
 # include "structs/t_player.h"
-# include "structs/t_map.h"
 # include "structs/t_img.h"
 # include "structs/t_window.h"
-# include "map.h"
 
 void	draw_player_pos(t_map map, t_player player);
 int		map_drawer(t_map map);

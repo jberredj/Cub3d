@@ -6,14 +6,13 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:50:17 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 08:52:01 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/27 10:04:51 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
 # include <stdbool.h>
-# include <stdlib.h>
 # include "structs/t_window.h"
 # include "structs/t_map.h"
 # include "structs/t_coord.h"

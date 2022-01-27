@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   game_engine.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 16:18:24 by jberredj          #+#    #+#             */
-/*   Updated: 2021/05/17 14:47:06 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 10:04:13 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_ENGINE_H
 # define GAME_ENGINE_H
-# include <stdbool.h>
 # include "structs/t_window.h"
 # include "structs/t_game.h"
 

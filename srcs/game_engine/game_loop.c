@@ -6,13 +6,14 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 15:52:28 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 09:43:26 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/27 10:07:06 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdbool.h>
 #include "mlx.h"
+#include "map.h"
 #include "structs/t_game.h"
 #include "structs/t_window.h"
 #include "player.h"

@@ -6,7 +6,7 @@
 #    By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 17:39:23 by jberredj          #+#    #+#              #
-#    Updated: 2022/01/27 09:31:51 by ddiakova         ###   ########.fr        #
+#    Updated: 2022/01/27 10:07:42 by ddiakova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,9 +65,9 @@ GAME_ENGINE_OBJS	=	$(addprefix objs/game_engine., $(subst /,., $(GAME_ENGINE:.c=
 STRUCTS				=	t_coord.h t_flags.h t_game.h t_img.h t_map.h t_mouse.h \
 						t_player.h t_ray.h t_window.h
 HEADERS				=	$(addprefix structs/, $(STRUCTS))\
-						color_utils.h cub3d.h error_code.h exit.h game_engine.h \
+						color_utils.h error_code.h exit.h game_engine.h \
 						keyboard.h map.h mlx_utils.h mlx.h mouse.h parser.h \
-						player.h qwerty.h ray.h raycaster.h render.h structs.h \
+						player.h qwerty.h ray.h raycaster.h render.h \
 						wall_render.h
 
 SRCS				=	$(RENDER_SRCS) $(PARSER_SRCS) $(CHECKER_SRCS) $(MLX_UTILS_SRCS) $(GAME_ENGINE_SRCS) \
