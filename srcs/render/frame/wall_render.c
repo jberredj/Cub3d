@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_render.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 15:36:01 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/21 14:47:32 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:24:15 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include "structs/t_img.h"
 #include "structs/t_ray.h"
 #include "structs/t_coord.h"
-#include "wall_render.h" // t_print_pix struct
-#include "mlx_utils.h" // for get_color_from_mlx_img function
-#include "player.h" // for FOV define
+#include "wall_render.h"
+#include "mlx_utils.h"
+#include "player.h"
 #include "color_utils.h"
 #include "raycaster.h"
 

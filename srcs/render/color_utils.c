@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   color_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 11:58:13 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/21 14:23:50 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:23:27 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdint.h>
-#include <stdio.h>
 
 int	get_a(int trgb)
 {

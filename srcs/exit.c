@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 15:54:12 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/19 12:40:06 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:23:01 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "../libs/libft/includes/libft.h"
 #include "structs/t_window.h"
-#include "map.h" // for free_map_grid function
-#include "ray.h" // for free_rays function
-#include "mlx_utils.h" // for free_img function
-#include "mlx.h" // for libmlx functions
+#include "map.h"
+#include "ray.h"
+#include "mlx_utils.h"
+#include "mlx.h"
 #include "error_code.h"
 
 void	free_exit(t_window *win)

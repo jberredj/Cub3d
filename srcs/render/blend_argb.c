@@ -3,15 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   blend_argb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 01:58:50 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 02:01:01 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:23:56 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
-#include <stdio.h>
 #include "color_utils.h"
 
 typedef struct s_argb

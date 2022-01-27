@@ -6,16 +6,16 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 14:17:30 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 08:51:21 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:22:48 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libs/libft/includes/libft.h"
-#include "parser.h" // for parser function
-#include "game_engine.h" // for create_win, free_exit and game_loop functions
-#include "ray.h" // for malloc ray function
-#include "mlx_utils.h" // for new_image and init_win_structs_functions
-#include "mlx.h" // for libmlx functions
+#include "parser.h"
+#include "game_engine.h"
+#include "ray.h"
+#include "mlx_utils.h"
+#include "mlx.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <unistd.h>
