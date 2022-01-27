@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   raycaster.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 15:34:39 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/21 14:35:10 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:40:16 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "player.h"
-#include "game_engine.h"
 #include "../libs/libft/includes/libft.h"
 #include "ray.h"
 #include "structs/t_ray.h"
-#include "structs/t_coord.h"
 #include "raycaster.h"
 
 void	cast(t_ray *ray, t_map map)

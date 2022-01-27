@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   compute_rays.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 01:37:58 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/21 14:47:20 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:39:06 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "player.h"
-#include "game_engine.h"
 #include "../libs/libft/includes/libft.h"
-#include "ray.h"
 #include "structs/t_ray.h"
 #include "structs/t_coord.h"
 #include "raycaster.h"

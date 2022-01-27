@@ -6,20 +6,17 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:13:44 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 08:57:06 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:56:37 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <math.h>
 #include "mlx.h"
 #include "structs/t_img.h"
 #include "structs/t_coord.h"
 #include "structs/t_mouse.h"
-#include "mlx_utils.h"
-#include "render.h"
+#include "structs/t_game.h"
+#include "structs/t_window.h"
 #include "player.h"
-#include "wall_render.h"
 
 void	mouse_move(t_window win, t_mouse *mouse)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 15:52:28 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 01:42:56 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:43:26 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 #include <stdbool.h>
 #include "mlx.h"
 #include "structs/t_game.h"
-#include "structs/t_ray.h"
 #include "structs/t_window.h"
-#include "player.h" // for init_player function
-#include "render.h" // for player_process function
-#include "map.h" // for init_map_struct function
-#include "ray.h" // for reset_rays function
-#include "raycaster.h" // for raycaster function
+#include "player.h"
+#include "render.h"
+#include "ray.h"
+#include "raycaster.h"
 
 t_game	init_game_engine(void)
 {

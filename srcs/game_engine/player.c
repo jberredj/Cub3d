@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:39:46 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/21 14:23:50 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:45:33 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "structs.h"
-#include "qwerty.h"
 #include <math.h>
 #include <stdlib.h>
+#include "structs/t_player.h"
+#include "structs/t_map.h"
+#include "qwerty.h"
 #include "ray.h"
-#include "player.h"
 #include "bonus_define.h"
 
 t_player	init_player(float x, float y, float radius, float angle)

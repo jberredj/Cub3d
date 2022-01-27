@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 15:33:37 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/21 14:23:50 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:42:01 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <math.h>
-#include "../libs/libft/includes/libft.h"
-#include "structs/t_ray.h"
-#include "player.h"
 
 float	normalize_angle(float angle)
 {

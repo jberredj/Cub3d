@@ -6,16 +6,13 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:38:38 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 08:57:30 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:57:23 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <math.h>
 #include "mlx.h"
 #include "structs/t_img.h"
-#include "structs/t_coord.h"
-#include "structs/t_mouse.h"
+#include "structs/t_game.h"
 #include "mlx_utils.h"
 #include "render.h"
 #include "player.h"

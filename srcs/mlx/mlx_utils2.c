@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 12:01:03 by jberredj          #+#    #+#             */
-/*   Updated: 2021/12/26 01:56:32 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:47:25 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "mlx_utils.h"
 #include "color_utils.h"
-#include "game_engine.h"
 
 void	init_img_struct(t_img *img)
 {

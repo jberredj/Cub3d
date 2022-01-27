@@ -6,20 +6,14 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:09:05 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 08:56:00 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:53:36 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <math.h>
-#include "mlx.h"
 #include "structs/t_img.h"
 #include "structs/t_coord.h"
-#include "structs/t_mouse.h"
 #include "mlx_utils.h"
-#include "render.h"
-#include "player.h"
-#include "wall_render.h"
 
 static void	bresen_circle_point(t_img *img, t_circle c, int x, int y)
 {
