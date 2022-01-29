@@ -6,7 +6,7 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 15:36:01 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 09:58:51 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/29 13:15:49 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,13 @@ void	strip(t_img *frame, t_ray ray, t_textures tex)
 	check_to_render(&up, frame, &ray);
 	pix = -1;
 	while (++pix < up && up != 0)
-		img_pixel_put(frame, ray.ray_nbr, pix,
-			ceeling_color(tex.c_color, pix, frame->height));
+		img_pixel_put(frame, ray.ray_nbr, pix, tex.c_color);
 	pix = -1;
 	while (++pix <= ray.strip_height && pix < frame->height)
 		texture_wall(frame, ray, (t_print_pix){pix, up}, tex);
 	while (pix + up < frame->height)
 	{
-		img_pixel_put(frame, ray.ray_nbr, up + pix,
-			floor_color(tex.f_color, up, pix, frame->height));
+		img_pixel_put(frame, ray.ray_nbr, up + pix, tex.f_color);
 		pix++;
 	}
 }
