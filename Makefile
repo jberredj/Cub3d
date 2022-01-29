@@ -6,11 +6,11 @@
 #    By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 17:39:23 by jberredj          #+#    #+#              #
-#    Updated: 2022/01/27 10:07:42 by ddiakova         ###   ########.fr        #
+#    Updated: 2022/01/29 12:03:14 by ddiakova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	cub3d
+NAME			=	cub3D
 
 CC				=	clang
 OPTI			=	-O3
