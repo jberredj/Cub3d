@@ -6,7 +6,7 @@
 #    By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 17:39:23 by jberredj          #+#    #+#              #
-#    Updated: 2022/01/29 12:03:14 by ddiakova         ###   ########.fr        #
+#    Updated: 2022/01/29 15:41:37 by ddiakova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -190,7 +190,7 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 valgrind:
-	valgrind  --trace-children=yes --suppressions=./ignoreliberror  --leak-check=full --show-leak-kinds=all ./$(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 .SILENT:
 
