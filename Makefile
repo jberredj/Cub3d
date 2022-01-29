@@ -6,7 +6,7 @@
 #    By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 17:39:23 by jberredj          #+#    #+#              #
-#    Updated: 2022/01/29 15:41:37 by ddiakova         ###   ########.fr        #
+#    Updated: 2022/01/29 15:43:17 by ddiakova         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ CHECKER_OBJS		=	$(addprefix objs/checker., $(subst /,., $(CHECKER:.c=.o)))
 
 MAP					=	circle.c process.c square.c
 FRAME				=	$(addprefix map/, $(MAP)) \
-						player.c render.c wall_render.c wall_ceeling_color.c
+						player.c render.c wall_render.c 
 RENDER				= 	$(addprefix frame/, $(FRAME))\
 						color_utils.c blend_argb.c 
 RENDER_SRCS			=	$(addprefix srcs/render/, $(RENDER))
