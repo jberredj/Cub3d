@@ -6,7 +6,7 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 15:54:12 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 10:00:26 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/29 13:10:31 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,13 @@ void	error_exit(int code, char *reason, char *location, t_window *win)
 	if (reason != NULL)
 	{
 		ft_putstr_fd("Exit reason : ", 2);
-		ft_putstr_fd(reason, 2);
+		ft_putendl_fd(reason, 2);
 	}
 	if (location != NULL)
 	{
 		ft_putstr_fd("Exit location : ", 2);
-		ft_putstr_fd(location, 2);
+		ft_putendl_fd(location, 2);
 	}
-	ft_putstr_fd("\n", 2);
 	free_exit(win);
 	exit(-code);
 }

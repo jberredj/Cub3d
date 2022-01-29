@@ -6,7 +6,7 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 14:14:46 by ddiakova          #+#    #+#             */
-/*   Updated: 2022/01/27 09:50:34 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/29 13:09:26 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ int	parser(t_window *win, int fd)
 	free(raw_map);
 	if (error < 0)
 		error_exit(error, NULL, "Map loader", win);
-	win->game.map.img = new_image(win->mlx, win->game.map.x * TILE_SIZE,
-			win->game.map.y * TILE_SIZE);
+	if (win->game.map.x > 0 || win->game.map.y > 0)
+		win->game.map.img = new_image(win->mlx, win->game.map.x * TILE_SIZE,
+				win->game.map.y * TILE_SIZE);
 	if (win->game.map.img == NULL)
 		error_exit(MALLOC_ERROR, "Can\'t malloc map img",
 			"Cub file parser", win);
