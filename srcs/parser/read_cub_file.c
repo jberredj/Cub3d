@@ -6,7 +6,7 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 13:26:34 by ddiakova          #+#    #+#             */
-/*   Updated: 2022/01/27 08:50:02 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:14:08 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ int	read_cub_file(t_window *win, int fd, char **raw_map)
 	bool	empty_in_map;
 
 	read_line = 1;
-	line = NULL;
 	empty_in_map = false;
+	error = 0;
 	while (read_line)
 	{
+		line = NULL;
 		read_line = get_next_line(fd, &line);
 		if (empty_in_map && *line != '\0')
 			return (EMPTY_LINE_IN_MAP);
@@ -53,7 +54,6 @@ int	read_cub_file(t_window *win, int fd, char **raw_map)
 		else if (ft_strlen(*raw_map) > 1)
 			empty_in_map = true;
 		free(line);
-		line = NULL;
 		if (error < 0)
 			return (finish_read(fd, error));
 	}
